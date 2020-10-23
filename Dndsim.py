@@ -49,16 +49,16 @@ chosenenemy1 = (random.choice(enemy1))
 print(
     f"As you are walking down a trail you encounter a group of {chosenenemy1}")
 print(f"What do you do? You can attack, run like a coward, or Scream like a little girl and sacrafice yourself to the {chosenenemy1}. Say attack, run or scream based on what you want. NO CAPITALS.")
-ifrepeat = 1
+ifrepeat1 = 1
 invalidresponses =('attack','run','scream')
 
-while ifrepeat == 1 or ifrepeat == 2:
+while ifrepeat1 == 1 or ifrepeat1 == 2:
 	decision1 = input()
 	if decision1 not in invalidresponses:
 		print("INVALID RESPONSE. PLEASE TRY AGAIN")
-		ifrepeat = 2
+		ifrepeat1 = 2
 	if decision1 == "run":
-		ifrepeat = 0
+		ifrepeat1 = 0
 		print( f"you ran like a coward and arrived at the nearest village where you spent the next few days until the {chosenenemy1} have left")
 	elif decision1 == "attack":
 		print("hit enter to roll a D10 to determine if you kill them without damage or of you kill them and get hit")
@@ -70,10 +70,10 @@ while ifrepeat == 1 or ifrepeat == 2:
 		else:
 			print("You killed them and took 4 damage")
 			chosenhp -= 4
-		ifrepeat = 0
+		ifrepeat1 = 0
 	elif decision1 == "scream":
 		print(f"you run towards the {chosenenemy1} screaming and hand them your {Chosenweapon}, allowing them to kill you with it.")
-		ifrepeat = 0
+		ifrepeat1 = 0
 		afterlife2 = (random.randint(1, 2))
 		if afterlife2 == 1:
 			print(
@@ -111,12 +111,16 @@ print ("you awake in bed, having slept good that night you felt refreshed and re
 print("...")
 
 print(
-    f"you walk towards the cave when you see flames erupting from it. As you get closer you see more of those pesky {chosenenemy1} gaurding the enterance. Do you attack them or run like a coward. say attack or run based on your decision."
-)
+    f"you walk towards the cave when you see flames erupting from it. As you get closer you see more of those pesky {chosenenemy1} gaurding the enterance. Do you attack them or run like a coward. say attack or run based on your decision.")
+ifrepeat2=1
 attk_run = (input())
+while ifrepeat2 ==1:
+	if attk_run not in invalidresponses:
+		print("INVALID RESPONSE. PLEASE TRY AGAIN")
 if attk_run == "run":
-    print(f"You get shot by one of the {chosenenemy1} by a bow")
-    chosenhp = 0
+	ifrepeat2 = 0
+	print(f"You get shot by one of the {chosenenemy1} by a bow and die")
+	chosenhp = 0
 if chosenhp <= 0:
     print("You died")
     print()
@@ -132,21 +136,19 @@ if chosenhp <= 0:
         )
         exit()
 if attk_run == "attack":
-
-    print(
-        f"You charge the {chosenenemy1}. Roll a D10 to see if you kill all of them, if you get five or above  you kill them, if you dont you get hit and then kill them. Press enter to roll the D10"
-    )
-    input()
-    hitorkill = 0
-    while hitorkill <= 0:
-        hitorkill = (random.randint(1, 10))
-        print(f" you rolled a {hitorkill}")
-        if hitorkill <= 4:
-            hitcounter = (random.randrange(0, 5))
-            chosenhp - hitcounter
-            print(f"you have {chosenhp} health left.")
-        else:
-            print(f"you killed the {chosenenemy1}")
+	ifrepeat2 = 0
+	print(f"You charge the {chosenenemy1}. Roll a D10 to see if you kill all of them, if you get five or above  you kill them, if you dont you get hit and then kill them. Press enter to roll the D10")
+	input()
+	hitorkill = 0
+	while hitorkill <= 0:
+		hitorkill = (random.randint(1, 10))
+		print(f" you rolled a {hitorkill}")
+		if hitorkill <= 4:
+			hitcounter = (random.randrange(0, 5))
+			chosenhp - hitcounter
+			print(f"you have {chosenhp} health left.")
+		else:
+			print(f"you killed the {chosenenemy1}")
 
 print(
     'you have successfully killed all of them. As you enter the cave you see it, A dragon... You try to stealthily approach it as it is sleeping. As you go to attack it wakes up and smackes you with its tail. Then you get back up. "Whats the worst that could happen." You say to yourself as you go to fight the dragon.'
@@ -174,13 +176,15 @@ while dragonhp >= 0 and dragonhp != 0:
 			print("you wake up in heaven, and you are treated to the smell of your mothers cookies and spend the rest of eternity happy")
 			exit()
 		if afterlife == 2:
-			print("You wake up in hell, are treated to the smell	of crap, and are tortured and misrable for eternity")
+			print("You wake up in hell, and you are imeadiatly greeted by demons and are tortured and misrable for eternity")
 			exit()
 if dragonhp <= 0:
-	print("You killed the dragon! It landed on top of you. You died")
+	print("You killed the dragon! It landed on top of you. You died because of being crushed.")
 	print()
 	afterlife = random.randint(1, 2)
 	if afterlife == 1:
 		print("you wake up in heaven, and you are treated to the smell of your mothers cookies and spend the rest of eternity happy")
 	if afterlife == 2:
-		print("You wake up in hell, are treated to the smell	of crap, and are tortured and misrable for eternity")
+		print("You wake up in hell, and you are imeadiatly greeted by demons and are tortured and misrable for eternity")
+print()
+print("THE END")
